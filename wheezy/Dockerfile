@@ -92,12 +92,10 @@ ADD ./patches/etc/ /etc/
 # Configure locales
 RUN locale-gen
 
-
 # Configure SysV
 RUN update-rc.d ssh-keys defaults && \
     update-rc.d oc-force-dhclient defaults && \
-    update-rc.d sync-kernel-modules defaults && \
-    update-rc.d nbd-root-disconnect defaults
+    update-rc.d sync-kernel-modules defaults
 
 
 # Clean rootfs from image-builder

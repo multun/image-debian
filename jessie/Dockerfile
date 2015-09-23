@@ -84,9 +84,6 @@ RUN apt-get -q update && \
     && apt-get clean
 
 
-# Configure locales
-RUN locale-gen
-
 
 # Default target
 RUN systemctl set-default multi-user
@@ -98,6 +95,10 @@ RUN rm -f /etc/motd && ln -s /var/run/motd /etc/motd
 
 # Patch rootfs
 ADD ./patches/etc/ /etc
+
+
+# Configure locales
+RUN locale-gen
 
 
 # Configure Systemd
