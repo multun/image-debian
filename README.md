@@ -1,5 +1,6 @@
-Debian images on Scaleway [![Build Status](https://travis-ci.org/scaleway/image-debian.svg?branch=master)](https://travis-ci.org/scaleway/image-debian)
-=====================================
+# Debian images on Scaleway
+
+[![Build Status](https://travis-ci.org/scaleway/image-debian.svg?branch=master)](https://travis-ci.org/scaleway/image-debian)
 
 Scripts to build the official Debian images on Scaleway
 
@@ -15,16 +16,17 @@ We use the Docker's building system and convert it at the end to a disk image th
 
 [More info](https://github.com/scaleway/image-tools#docker-based-builder)
 
-Available tags
---------------
+## Available tags
 
-- wheezy (7.7, 7)
-- jessie (8, latest)
+Codename | Tags                       | Infos
+---------|----------------------------|-------
+wheezy   | **7**, **7.9**             | [![](https://badge.imagelayers.io/scaleway/debian:wheezy.svg)](https://imagelayers.io/?images=scaleway/debian:wheezy 'Get your own badge on imagelayers.io')
+jessie   | **8**, **8.2**, **latest** | [![](https://badge.imagelayers.io/scaleway/debian:jessie.svg)](https://imagelayers.io/?images=scaleway/debian:jessie 'Get your own badge on imagelayers.io')
+sid      | **sid**, **unstable**      | [![](https://badge.imagelayers.io/scaleway/debian:sid.svg)](https://imagelayers.io/?images=scaleway/debian:sid 'Get your own badge on imagelayers.io')
 
 ---
 
-Install
--------
+## Install
 
 Build and write the image to `/dev/nbd1` (see [documentation](https://www.scaleway.com/docs/create_an_image_with_docker))
 
@@ -34,8 +36,7 @@ Full list of commands available at: [scaleway/image-tools](https://github.com/sc
 
 ---
 
-Links
------
+## Links
 
 - [Community: Official Debian Image](https://community.cloud.online.net/t/official-debian-image/344/11?u=manfred)
 - [Community: New Linux Distributions on C1](https://community.cloud.online.net/t/official-new-linux-distributions-ubuntu-coreos-centos-fedora-arch-linux/229?u=manfred)
