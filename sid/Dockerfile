@@ -1,31 +1,27 @@
 ## -*- docker-image-name: "scaleway/debian:sid" -*-
-FROM armbuild/debian:sid
+FROM multiarch/debian-debootstrap:amd64-sid
+# following 'FROM' lines are used dynamically thanks do the image-builder
+# which dynamically update the Dockerfile if needed.
+#FROM multiarch/debian-debootstrap:armhf-sid    # arch=armv7l
+#FROM multiarch/debian-debootstrap:arm64-sid    # arch=arm64
+#FROM multiarch/debian-debootstrap:i386-sid     # arch=i386
+#FROM multiarch/debian-debootstrap:powerpc-sid  # arch=powerpc
+#FROM multiarch/debian-debootstrap:armel-sid    # arch=armel
+
+
 MAINTAINER Scaleway <opensource@scaleway.com> (@scaleway)
 
 
 # Environment
-ENV DEBIAN_FRONTEND noninteractive
-# Useful for image inheritance
-ENV SCW_BASE_IMAGE scaleway/debian:sid
+ENV DEBIAN_FRONTEND=noninteractive SCW_BASE_IMAGE=scaleway/debian:sid
 
 
-# ./patches/usr/local/bin/ is where the builder downloads qemu-*-static binaries
-ADD ./patches/usr/local/bin/ /usr/local/bin/
+# Adding and calling builder-enter
+COPY ./overlay-image-tools/usr/local/sbin/builder-enter /usr/local/sbin/
+RUN /bin/sh -xe /usr/local/sbin/builder-enter
 
-
-# ./patches/etc/apt/ contains source.list + apt.conf tuning
-ADD ./patches/etc/apt/ /etc/apt/
-
-
-# Patch rootfs for docker-based builds
-RUN apt-get -y -q update \
- && apt-get -y -qq install bash curl lsb-release tar \
- && apt-get -y clean \
- && curl -Lq http://j.mp/scw-skeleton | FLAVORS=common,docker-based,systemd,feature-motd bash -e \
- && /usr/local/sbin/builder-enter
 
 # Install packages
-ADD ./patches/etc/apt/sources.list /etc/apt/sources.list
 RUN apt-get -q update && \
     apt-get -y -qq upgrade && \
     apt-get install -y -qq \
@@ -74,6 +70,7 @@ RUN apt-get -q update && \
 	sudo \
 	sysstat \
 	systemd-sysv \
+	tar \
 	tcpdump \
 	tmux \
 	uuid-runtime \
@@ -93,7 +90,7 @@ RUN rm -f /etc/motd && ln -s /var/run/motd /etc/motd
 
 
 # Patch rootfs
-ADD ./patches/etc/ /etc
+COPY ./overlay/ ./overlay-image-tools/ ./overlay-${ARCH}/ /
 
 
 # Configure locales
