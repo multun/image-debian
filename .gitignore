@@ -1,3 +1,6 @@
+*.built
+tmp-*/
+.overlays
 *~
 .*~
 *#
@@ -7,6 +10,5 @@ source.tar.xz
 sd*.raw*
 rootfs*
 */*.tar
-*/*.built
 docker-rules.mk
 qemu-*-static
