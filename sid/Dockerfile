@@ -16,6 +16,11 @@ MAINTAINER Scaleway <opensource@scaleway.com> (@scaleway)
 ENV DEBIAN_FRONTEND=noninteractive SCW_BASE_IMAGE=scaleway/debian:sid
 
 
+# Configure aptitude
+# Note that, `${ARCH}` is set in the multiarch/debian-debootstrap image
+COPY ./overlay-${ARCH}/etc/apt/ /etc/apt/
+
+
 # Adding and calling builder-enter
 COPY ./overlay-image-tools/usr/local/sbin/builder-enter /usr/local/sbin/
 RUN /bin/sh -xe /usr/local/sbin/builder-enter
