@@ -7,6 +7,7 @@ FROM multiarch/debian-debootstrap:amd64-sid
 #FROM multiarch/debian-debootstrap:i386-sid     # arch=i386
 #FROM multiarch/debian-debootstrap:powerpc-sid  # arch=powerpc
 #FROM multiarch/debian-debootstrap:armel-sid    # arch=armel
+#FROM multiarch/debian-debootstrap:mips-sid     # arch=mips
 
 
 MAINTAINER Scaleway <opensource@scaleway.com> (@scaleway)
