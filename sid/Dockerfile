@@ -28,6 +28,7 @@ RUN /bin/sh -xe /usr/local/sbin/builder-enter
 
 # Install packages
 RUN apt-get -q update && \
+    apt-get -y -u dist-upgrade && \
     apt-get -y -qq upgrade && \
     apt-get install -y -qq \
 	bash-completion \
@@ -57,7 +58,6 @@ RUN apt-get -q update && \
 	make \
 	man-db \
 	mg \
-	module-init-tools \
 	mosh \
 	nano \
 	net-tools \
@@ -82,8 +82,8 @@ RUN apt-get -q update && \
 	vim \
 	wget \
 	whiptail \
+    && (apt-get -y install module-init-tools || true) \
     && apt-get clean
-
 
 
 # Default target
