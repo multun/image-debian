@@ -7,6 +7,7 @@ FROM multiarch/debian-debootstrap:amd64-wheezy
 #FROM multiarch/debian-debootstrap:i386-wheezy     # arch=i386
 #FROM multiarch/debian-debootstrap:powerpc-wheezy  # arch=powerpc
 #FROM multiarch/debian-debootstrap:armel-wheezy    # arch=armel
+#FROM multiarch/debian-debootstrap:mips-wheezy     # arch=mips
 
 
 MAINTAINER Scaleway <opensource@scaleway.com> (@scaleway)

@@ -7,6 +7,7 @@ FROM multiarch/debian-debootstrap:amd64-jessie
 #FROM multiarch/debian-debootstrap:i386-jessie     # arch=i386
 #FROM multiarch/debian-debootstrap:powerpc-jessie  # arch=powerpc
 #FROM multiarch/debian-debootstrap:armel-jessie    # arch=armel
+#FROM multiarch/debian-debootstrap:mips-jessie     # arch=mips
 
 
 MAINTAINER Scaleway <opensource@scaleway.com> (@scaleway)
