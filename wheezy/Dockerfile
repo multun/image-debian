@@ -23,8 +23,8 @@ COPY ./overlay-${ARCH}/etc/apt/ /etc/apt/
 
 
 # Adding and calling builder-enter
-COPY ./overlay-image-tools/usr/local/sbin/builder-enter /usr/local/sbin/
-RUN /bin/sh -xe /usr/local/sbin/builder-enter
+COPY ./overlay-image-tools/usr/local/sbin/scw-builder-enter /usr/local/sbin/
+RUN /bin/sh -xe /usr/local/sbin/scw-builder-enter
 
 
 # Install packages
@@ -96,10 +96,10 @@ RUN locale-gen
 
 
 # Configure SysV
-RUN update-rc.d ssh-keys defaults && \
-    update-rc.d oc-force-dhclient defaults && \
-    update-rc.d sync-kernel-modules defaults
+RUN update-rc.d scw-ssh-keys defaults && \
+    update-rc.d scw-force-dhclient defaults && \
+    update-rc.d scw-sync-kernel-modules defaults
 
 
 # Clean rootfs from image-builder
-RUN /usr/local/sbin/builder-leave
+RUN /usr/local/sbin/scw-builder-leave
