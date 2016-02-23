@@ -12,7 +12,7 @@ FROM multiarch/debian-debootstrap:amd64-wheezy
 
 MAINTAINER Scaleway <opensource@scaleway.com> (@scaleway)
 
- 	    	    
+
 # Environment
 ENV DEBIAN_FRONTEND=noninteractive SCW_BASE_IMAGE=scaleway/debian:wheezy
 
@@ -80,6 +80,7 @@ RUN apt-get -q update && \
 	vim \
 	wget \
 	whiptail \
+    unattended-upgrades \
     && apt-get clean
 
 

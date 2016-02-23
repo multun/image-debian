@@ -82,6 +82,7 @@ RUN apt-get -q update && \
 	vim \
 	wget \
 	whiptail \
+    unattended-upgrades \
     && apt-get clean
 
 
