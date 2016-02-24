@@ -83,7 +83,6 @@ RUN apt-get -q update && \
 	vim \
 	wget \
 	whiptail \
-    unattended-upgrades \
     && (apt-get -y install module-init-tools || true) \
     && apt-get clean
 
