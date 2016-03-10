@@ -14,7 +14,7 @@ IMAGE_VOLUME_SIZE =	50G
 # This is specific to distribution images
 # -- to fetch latest code, run 'make sync-image-tools'
 IMAGE_TOOLS_FLAVORS =   common,docker-based,systemd,feature-motd
-IMAGE_TOOLS_CHECKOUT =  0e29bd0b0041c100a11857b8639bf208a5f3c2b0
+IMAGE_TOOLS_CHECKOUT =  17504f3812936416ef6c8ea94b7e845034f89cd3
 
 
 ## Image tools  (https://github.com/scaleway/image-tools)
