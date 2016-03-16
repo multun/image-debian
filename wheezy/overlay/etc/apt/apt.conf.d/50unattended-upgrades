@@ -1,7 +1,8 @@
-Unattended-Upgrade::Allowed-Origins {
-    "origin=Debian,archive=stable,label=Debian-Security";
-    "origin=Debian,archive=oldstable,label=Debian-Security";
+Unattended-Upgrade::Origins-Pattern {
+        "origin=Debian,archive=stable,label=Debian-Security";
+        "origin=Debian,archive=oldstable,label=Debian-Security";
 };
+
 Unattended-Upgrade::Package-Blacklist {
     "xnbd-client";
     "nbd-client";
