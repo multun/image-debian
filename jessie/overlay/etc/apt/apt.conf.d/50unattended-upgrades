@@ -1,5 +1,5 @@
-Unattended-Upgrade::Allowed-Origins {
-    "o=Debian,n=jessie,l=Debian-Security";
+Unattended-Upgrade::Origins-Pattern {
+        "origin=Debian,archive=stable,label=Debian-Security";
 };
 Unattended-Upgrade::Package-Blacklist {
     "xnbd-client";
