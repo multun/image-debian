@@ -102,5 +102,9 @@ RUN update-rc.d scw-ssh-keys defaults && \
     update-rc.d scw-sync-kernel-modules defaults
 
 
+# Fix permissions
+RUN chmod 755 /etc/default
+
+
 # Clean rootfs from image-builder
 RUN /usr/local/sbin/scw-builder-leave

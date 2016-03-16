@@ -121,5 +121,9 @@ RUN rm -f /sbin/init \
  && ln -sf ../lib/systemd/systemd /sbin/init
 
 
+# Fix permissions
+RUN chmod 755 /etc/default
+
+
 # Clean rootfs from image-builder
 RUN /usr/local/sbin/scw-builder-leave
