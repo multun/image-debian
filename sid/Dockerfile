@@ -50,6 +50,7 @@ RUN apt-get -q update && \
 	iptables \
 	iputils-ping \
 	isc-dhcp-client \
+	kmod \
 	less \
 	libnss-myhostname \
 	locales \
