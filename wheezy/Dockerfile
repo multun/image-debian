@@ -42,6 +42,7 @@ RUN apt-get -q update && \
 	ethstatus \
 	file \
 	fio \
+	haveged \
 	htop \
 	ioping \
 	iotop \
