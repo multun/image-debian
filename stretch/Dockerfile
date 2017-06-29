@@ -86,7 +86,6 @@ RUN apt-get -q update && \
     && apt-get clean
 
 
-
 # Default target
 RUN systemctl set-default multi-user
 
