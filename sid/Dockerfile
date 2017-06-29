@@ -5,9 +5,7 @@ FROM multiarch/debian-debootstrap:amd64-sid
 #FROM multiarch/debian-debootstrap:armhf-sid    # arch=armv7l
 #FROM multiarch/debian-debootstrap:arm64-sid    # arch=arm64
 #FROM multiarch/debian-debootstrap:i386-sid     # arch=i386
-#FROM multiarch/debian-debootstrap:powerpc-sid  # arch=powerpc
 #FROM multiarch/debian-debootstrap:armel-sid    # arch=armel
-#FROM multiarch/debian-debootstrap:mips-sid     # arch=mips
 
 
 MAINTAINER Scaleway <opensource@scaleway.com> (@scaleway)
@@ -86,7 +84,6 @@ RUN apt-get -q update && \
 	vim \
 	wget \
 	whiptail \
-    && (apt-get -y install module-init-tools || true) \
     && apt-get clean
 
 
@@ -108,7 +105,7 @@ RUN locale-gen
 
 # Configure Systemd
 RUN systemctl enable \
-        scw-fetch-ssh-keys \
+	scw-fetch-ssh-keys \
 	scw-sync-kernel-modules \
 	scw-generate-ssh-keys \
 	scw-gen-machine-id \
@@ -122,6 +119,12 @@ RUN systemctl enable \
 
 RUN rm -f /sbin/init \
  && ln -sf ../lib/systemd/systemd /sbin/init
+
+
+# Enable serial console by default
+RUN systemctl enable getty@ttyS0.service
+RUN systemctl enable getty@ttyS1.service
+RUN systemctl enable getty@ttyAMA0.service
 
 
 # Fix permissions

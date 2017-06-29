@@ -1,6 +1,6 @@
 [Unit]
 Description=SCW fetch kernel modules from Scaleway mirror
-After=network-online.target
+After=NetworkManager-wait-online.service
 
 [Service]
 ExecStart=/usr/local/sbin/scw-sync-kernel-modules
